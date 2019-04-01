@@ -2,6 +2,7 @@ package pl.zajacp.domain.books;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.zajacp.domain.model.Book;
 
 import java.util.List;
 

@@ -1,6 +1,7 @@
 package pl.zajacp.domain.books;
 
 import org.springframework.stereotype.Service;
+import pl.zajacp.domain.model.Book;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,3 +37,5 @@ public class MemoryBookService {
 //identyfikatorze.
 //Edycje obiektu.
 //Usuwanie obiektu.
+
+
