@@ -1,27 +1,33 @@
 package pl.zajacp.domain.books;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import pl.zajacp.domain.model.Book;
 
 import java.util.List;
 
 @RestController
+@Transactional
 @RequestMapping("/books")
 public class BookController {
 
-    private final MemoryBookService memoryBookService;
+    private final ServiceTestBookDao serviceTestBookDao;
 
     @Autowired
-    public BookController(MemoryBookService memoryBookService) {
-        this.memoryBookService = memoryBookService;
+    public BookController(ServiceTestBookDao serviceTestBookDao) {
+        this.serviceTestBookDao = serviceTestBookDao;
     }
 
-    @RequestMapping("/helloBook")
-    public Book helloBook() {
-        return new Book(1L, "9788324631766", "Thinking in Java",
-                "Bruce Eckel", "Helion", "programming");
+
+    @GetMapping
+    public void addBooks() {
+        serviceTestBookDao.generateBooks();
     }
+
+
+/*
+    //Old non-generic methods, to be rewritten:
 
     @GetMapping
     public List<Book> getAllBooks() {
@@ -70,6 +76,7 @@ public class BookController {
     public void deleteBook(@PathVariable long id) {
         memoryBookService.getList().removeIf(x-> x.getId() == id);
     }
+    */
 }
 
 //GET
