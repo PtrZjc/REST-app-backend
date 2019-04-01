@@ -12,9 +12,6 @@ import javax.persistence.PersistenceContext;
 @Transactional
 public class BookDao extends AbstractDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
     public BookDao() {
         setClass(Book.class);
     }
